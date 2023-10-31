@@ -1,0 +1,44 @@
+.react-google-flight-datepicker .dialog-date-picker {
+  width: 700px !important;
+  z-index: 1 !important;
+}
+.react-google-flight-datepicker .date-picker {
+  padding: 2px !important;
+}
+.react-google-flight-datepicker .day.selected.hovered::after {
+  border-radius: 100%;
+  background-color: #272a61 !important;
+}
+.react-google-flight-datepicker .day.hovered {
+  background: #fce0de !important;
+  border-radius: unset;
+}
+.react-google-flight-datepicker .day.selected::after {
+  background-color: #272a61 !important;
+  border-radius: 100%;
+}
+.react-google-flight-datepicker .day:hover::after {
+  background-color: #fff;
+  border: 2px solid #272a61 !important;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  top: -2px;
+}
+.react-google-flight-datepicker .icon-calendar {
+  fill: #272a61 !important;
+}
+.react-google-flight-datepicker .date:focus,
+.react-google-flight-datepicker .date.is-focus {
+  background-color: #fce0de !important;
+}
+.react-google-flight-datepicker .date.is-focus::after {
+  border: 0px solid #272a61 !important;
+  z-index: -10;
+}
+.react-google-flight-datepicker .dialog-footer .submit-button {
+  background-color: #272a61 !important;
+}
+.react-google-flight-datepicker .day .background-day.last-day {
+  background: linear-gradient(to left, #fff, #fce0de) !important;
+}

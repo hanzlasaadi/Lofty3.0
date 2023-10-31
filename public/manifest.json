@@ -1,0 +1,27 @@
+{
+  "short_name": "LoftyRooms",
+  "display": "standalone",
+  "lang": "en",
+  "background_color": "#272a61",
+  "name": "Luxury and Affordable Stays, Every time.",
+  "description": "LoftyRooms is a leading provider of luxury accommodations and hospitality services. We offer a wide range of premium lodging options and personalized guest experiences, ensuring a memorable stay for our clients. Whether you're seeking a tranquil escape in a scenic location or a luxurious urban retreat, LoftyRooms provides a curated selection of properties to meet your unique needs.",
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./logo.png",
+      "sizes": "92x92",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.cas.loftyRooms"
+    }
+  ]
+}

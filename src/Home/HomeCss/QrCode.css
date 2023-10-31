@@ -1,0 +1,35 @@
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rizwan-box {
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #F6F6F6;
+}
+
+@media (min-width: 768px) {
+
+  /* Apply these styles only for screens wider than 768px (tablets and desktops) */
+  .image-container {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 50%;
+  }
+}
+
+
+/* Add this media query for screens smaller than 768px (phones) */
+@media (max-width: 767px) {
+  .image-container {
+    /* Reset flex-direction for smaller screens */
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    /* Remove the margin-left for center alignment */
+  }
+}

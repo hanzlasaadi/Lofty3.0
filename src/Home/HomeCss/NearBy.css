@@ -1,0 +1,18 @@
+
+/* <<<<<<<<<<<<<<      NearBy       >>>>>>>>>>>>>>>>>>>>>> */
+
+.nearbyViewAll:hover{
+    color: #272a61;
+    padding-right: 4px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  
+  .home3-blog-area .blog-card3 .bolg-content .blog-meta ul li::after {
+    /* content: url(../images/icon/h3-blog-meta-icon.svg); */
+    position: absolute;
+    left: -23px;
+    top: 50%;
+    transform: translateY(-50%);
+  }

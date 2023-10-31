@@ -1,0 +1,82 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+.card {
+    width: 250px; /* Adjust this to your desired card width */
+    /* border: 1px solid #ccc; */
+    /* border-radius: 5px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    margin: 5px;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* -------------color :start------ */
+/* Example CSS */
+.review .bi-star-fill {
+    color: gold; /* Color for filled stars */
+}
+
+.review .bi-star-half {
+    color: orange; /* Color for half stars */
+}
+
+.review .bi-star {
+    color: lightgray; /* Color for empty stars */
+}
+/* Example CSS */
+p {
+    display: flex; /* Use flex display to easily manage spacing */
+    gap: 20px; /* Adjust this value to control the spacing */
+}
+
+/* If you want to apply specific styles to individual icons */
+.fa-bath,
+.bi-telephone-forward,
+.bi-wifi,
+.bi-tv {
+    margin-right: 20px; /* Adjust this value to control the spacing */
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Pathway+Gothic+One&display=swap');
+
+.room-title {
+    color: rgb(103, 104, 103);
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+}
+/* CSS */
+.custom-icon {
+    font-size: 20px;
+    color: #1e3c72;
+  }
+ .price{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e3c72;
+ }
+ .number{
+    font-size: 17px;
+ }
+ .titl{
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+ }
+ .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

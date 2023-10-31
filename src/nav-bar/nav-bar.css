@@ -1,0 +1,426 @@
+h2 {
+  color: #272a61;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Pathway+Gothic+One&display=swap");
+
+.header-area {
+  margin-top: -10px;
+}
+
+.Title {
+  font-family: "Oswald", sans-serif;
+  font-weight: bolder;
+}
+
+header.style-3 .nav-right ul li a {
+  border-color: #272a61;
+}
+
+header.style-3 .nav-right ul li a svg {
+  fill: #272a61;
+  transition: 0.35s;
+}
+
+header.style-3 .nav-right ul li a svg {
+  fill: #272a61;
+  transition: 0.35s;
+}
+
+:root {
+  --primary-color2: #272a61;
+  --primary-color3: #272a61;
+  --gradient-color: linear-gradient(90deg, #f86ca7 0%, #ff7f18 100%);
+  --title-color1: #001d23;
+  --title-color2: #253d4e;
+  --text-color1: #8a8a8a;
+  --text-color2: #1f2124;
+  --text-color3: #62686e;
+  --text-color4: #4f4f4f;
+  --white: #ffffff;
+  --font-dosis: "Dosis";
+  --font-cabin: "Cabin";
+}
+
+.well {
+  background-color: #ffffee;
+}
+
+.input-group {
+  width: 100%;
+}
+
+#khuram {
+  height: 45px;
+}
+
+#search {
+  width: 45px;
+}
+
+#bn {
+  color: #fff;
+  background-color: #272a61;
+  border-color: #272a61;
+  border-radius: 7px;
+  margin-left: -20px;
+  width: 80px;
+}
+
+.text-center {
+  color: #fff;
+}
+
+.home3-categoty-area .category-card {
+  height: 50px;
+  width: 140px;
+  background: #e0f1f0;
+  border-radius: 12px;
+  perspective: 961px;
+  margin: 0 auto;
+}
+
+.Login {
+  width: 20px;
+}
+
+.btn-outline {
+  color: #272a61;
+  border-color: #272a61;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cover {
+  background: rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.contents {
+  width: 300px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 30px auto;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.close {
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 5px 15px;
+  position: absolute;
+  bottom: 15px;
+  text-align: center;
+  left: 30%;
+  width: 100px;
+  box-shadow: inset 0px 0px 10px 5px #ccc;
+  /* cursor: */
+}
+
+.WhatsappCall {
+  color: black;
+  font-size: 17px;
+}
+
+/* <Login form > */
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+.form-control {
+  box-shadow: none;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.nav-link img {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -8px 0;
+  float: left;
+  margin-right: 10px;
+}
+
+.navbar .navbar-brand {
+  padding-left: 0;
+  font-size: 20px;
+  padding-right: 50px;
+}
+
+.navbar .navbar-brand b {
+  color: #272a61;
+}
+
+.navbar .form-inline {
+  display: inline-block;
+}
+
+.navbar a {
+  color: #888;
+  font-size: 15px;
+}
+
+.navbar .sign-up-btn {
+  min-width: 110px;
+  max-height: 36px;
+}
+
+.navbar .dropdown-menu {
+  color: #999;
+  font-weight: normal;
+  border-radius: 1px;
+  border-color: #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar a,
+.navbar a:active {
+  color: #888;
+  padding: 8px 20px;
+  background: transparent;
+  line-height: normal;
+}
+
+.navbar .navbar-form {
+  border: none;
+}
+
+.navbar .action-form {
+  width: 280px;
+  padding: 20px;
+  left: auto;
+  right: 0;
+  font-size: 14px;
+}
+
+.navbar .action-form a {
+  color: #272a61;
+  padding: 0 !important;
+  font-size: 14px;
+}
+
+.navbar .action-form .hint-text {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.navbar .btn-primary,
+.navbar .btn-primary:active {
+  color: #fff;
+  background: #272a61 !important;
+  border: none;
+}
+
+.navbar .btn-primary:hover,
+.navbar .btn-primary:focus {
+  color: #fff;
+  background: #272a61 !important;
+}
+
+.navbar .social-btn .btn,
+.navbar .social-btn .btn:hover {
+  color: #fff;
+  margin: 0;
+  padding: 0 !important;
+  font-size: 13px;
+  border: none;
+  transition: all 0.4s;
+  text-align: center;
+  line-height: 34px;
+  width: 47%;
+  text-decoration: none;
+}
+
+.navbar .social-btn .facebook-btn {
+  background: #507cc0;
+}
+
+.navbar .social-btn .facebook-btn:hover {
+  background: #4676bd;
+}
+
+.navbar .social-btn .twitter-btn {
+  background: #64ccf1;
+}
+
+.navbar .social-btn .twitter-btn:hover {
+  background: #272a61;
+}
+
+.navbar .social-btn .btn i {
+  margin-right: 5px;
+  font-size: 16px;
+  position: relative;
+  top: 2px;
+}
+
+.or-seperator {
+  margin-top: 32px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.or-seperator b {
+  color: #666;
+  padding: 0 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 26px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  position: relative;
+  top: -15px;
+  z-index: 1;
+}
+
+.navbar .action-buttons .dropdown-toggle::after {
+  display: none;
+}
+
+.form-check-label input {
+  position: relative;
+  top: 1px;
+}
+
+@media (min-width: 1200px) {
+  .form-inline .input-group {
+    width: 300px;
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .dropdown-menu.action-form {
+    width: 100%;
+    padding: 10px 15px;
+    background: transparent;
+    border: none;
+  }
+
+  .navbar .form-inline {
+    display: block;
+  }
+
+  .navbar .input-group {
+    width: 100%;
+  }
+}
+
+/* <Login form > */
+@media (max-width: 768px) {
+
+  /* Adjust icon styles for smaller screens */
+  .navbar .social-btn .btn i {
+    font-size: 14px;
+    /* Adjust the font size for smaller screens */
+  }
+}
+
+/* -------------------------------- */
+
+.top-text-block {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: inherit !important;
+  border-bottom: 1px solid #f4f4f4;
+  position: relative;
+
+  &:hover {
+    &:before {
+      content: "";
+      width: 4px;
+      background: #f05a1a;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+    }
+  }
+
+  &.unread {
+    background: #ffc;
+
+    /* // &:hover {
+                                    //   background:#ffd;
+                                    // } */
+  }
+
+  .top-text-light {
+    /* // color:#ccc; */
+    color: #999;
+    font-size: 0.8em;
+  }
+}
+
+.top-head-dropdown {
+  .dropdown-menu {
+    width: 350px;
+    height: 300px;
+    overflow: auto;
+  }
+
+  li:last-child {
+    .top-text-block {
+      border-bottom: 0;
+    }
+  }
+}
+
+.topbar-align-center {
+  text-align: center;
+}
+
+.loader-topbar {
+  margin: 5px auto;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  border-top: 3px solid #666;
+  width: 22px;
+  height: 22px;
+  -webkit-animation: spin-topbar 1s linear infinite;
+  animation: spin-topbar 1s linear infinite;
+}
+
+@-webkit-keyframes spin-topbar {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-topbar {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

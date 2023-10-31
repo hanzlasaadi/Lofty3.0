@@ -1,0 +1,35 @@
+.footer {
+  background: #fff5ed;
+  /* padding: 50px 80px; */
+  color: #001d23;
+}
+
+.footer-sec1 {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.footer-sec1 .last-div button {
+  width: 173px;
+  height: 48px;
+  /* background: #ffffff; */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-sec1 .last-div button i {
+  margin-right: 8px;
+}
+
+@media (max-width:991px) {
+  .carousel-item img {
+    height: 100vh !important;
+  }
+}

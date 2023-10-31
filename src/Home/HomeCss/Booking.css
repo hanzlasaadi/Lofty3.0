@@ -1,0 +1,385 @@
+.fluid {
+  width: 100%;
+  height: 500px;
+  border-radius: 3%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  height: 60vw;
+  max-height: 60vh;
+  background: #000;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 0;
+    padding-bottom: 66.25%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  &__video-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940), visibility 0.5s linear;
+
+    &--fadeOut {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  &__title {
+    position: relative;
+    flex: 0 0 auto;
+    align-self: center;
+    width: 100%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+    color: white;
+    line-height: 1;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Pathway+Gothic+One&display=swap');
+
+.link {
+  display: inline-block;
+  border-radius: 60%;
+  /* Make the container circular */
+  padding: 1px;
+  /* Adjust the padding as needed */
+  border: 8px solid #f8f5f5;
+  /* Border style and color */
+  background-color: aliceblue;
+  text-decoration: none;
+  /* Remove underline from the link */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.link .icon-circle {
+  fill: rgb(124, 122, 122);
+  /* Change to your desired color */
+}
+
+.icon-img {
+  margin-left: 92%;
+  justify-content: flex-end;
+  /* Align items to the right */
+  align-items: center;
+  margin-top: -22px;
+}
+
+.Deluxe {
+  margin-right: 85%;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+
+}
+
+.FACILITES {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-right: 84%;
+  color: rgb(65, 65, 65);
+}
+
+.ico {
+  text-align: center;
+}
+
+
+.ico img {
+  max-width: 30%;
+}
+
+.d img {
+  max-width: 20%;
+
+}
+
+.ico .number {
+  display: block;
+  margin-top: 5px;
+  /* Adjust the margin as needed */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Pathway+Gothic+One&display=swap');
+
+.row-ico {
+  margin-left: 60px;
+  font-size: 10px;
+}
+
+#demo {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.green {
+  background-color: #525252;
+}
+
+img {
+  border-radius: 10%;
+}
+
+.page-top {
+  margin-top: 85px;
+}
+
+img.zoom {
+  z-index: 1;
+  width: 100%;
+  height: 200px;
+
+  object-fit: cover;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+}
+
+.transition {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  color: #000;
+}
+
+.modal-footer {
+  display: none;
+}
+
+.FACILITES img {
+  max-height: 2em;
+  /* You can adjust this value as needed */
+  margin-left: 450%;
+
+}
+
+.locatoin {
+  margin-right: 79%;
+}
+
+.number {
+  font-size: 20px;
+}
+
+.Rs {
+  border-right: 3px solid rgb(244, 246, 244);
+  font-family: "Asap", sans-serif;
+}
+
+.bor {
+  background-color: #f5f6fa;
+  width: 96%;
+  margin-left: 2%;
+  /* Adjust margin for smaller screens */
+  border-radius: 15px;
+  display: flex;
+  /* Use flexbox for better alignment */
+  flex-wrap: wrap;
+  /* Allow items to wrap on smaller screens */
+  justify-content: space-between;
+  /* Distribute items evenly */
+  padding: 10px;
+  /* Add some padding for spacing */
+}
+
+.col {
+  flex-basis: calc(33.33% - 20px);
+  /* Adjust flex-basis for 3 columns */
+  margin-bottom: 10px;
+  /* Add some space between columns */
+}
+
+.b {
+  font-family: "Asap", sans-serif;
+  color: #a6a6a6;
+  font-size: 14px;
+  /* Decrease font size for smaller screens */
+}
+
+.a {
+  font-family: "Asap", sans-serif;
+  color: #989898;
+  font-size: 16px;
+  /* Decrease font size for smaller screens */
+}
+
+@media (max-width: 767px) {
+  .bor {
+    flex-direction: column;
+    /* Stack columns on smaller screens */
+    align-items: center;
+    /* Center align items */
+  }
+}
+
+.error-btn .btn {
+  border-radius: 60px;
+  background-color: #272a61;
+}
+
+.bi-arrow-right {
+  font-size: 20px;
+}
+
+.R {
+  font-family: "Asap", sans-serif;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error .btn {
+  font-family: "Asap", sans-serif;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 20px;
+  background-color: #f5f6fa;
+  border: none;
+  color: #272a61;
+}
+
+.err {
+  display: flex;
+  justify-content: flex-end;
+  /* Align items to the right */
+  align-items: center;
+}
+
+.err .btn {
+  border-radius: 60px;
+  font-size: 20px;
+  background-color: #272a61;
+  border: none;
+  padding: 20px;
+}
+
+
+
+/* Styles for screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+
+  /* For example, make the header font size smaller */
+  .Deluxe {
+    font-size: 20px;
+  }
+
+  /* Adjust column layout for smaller screens */
+  .ico {
+    width: 10%;
+    text-align: center;
+  }
+
+  .number {
+    font-size: 10px;
+  }
+
+  /* Modify the container padding or margins */
+  .container {
+    padding: 10px;
+  }
+
+  /* Hide or adjust certain elements that might not fit well */
+  .icon-img {
+    display: none;
+  }
+}
+
+/* More media queries for other screen sizes if needed */
+@media (max-width: 768px) {
+  .fluid {
+    height: 300px;
+    /* Adjust as needed */
+  }
+
+  .link {
+    margin-left: 70%;
+  }
+
+  .Deluxe {
+    margin-right: 10%;
+    font-size: 24px;
+  }
+
+  .number {
+    font-size: 10px;
+  }
+
+
+  .ico {
+    width: 30%;
+    text-align: center;
+  }
+
+  .d img {
+    width: 20%;
+    text-align: center;
+  }
+
+  .c img {
+    width: 40%;
+    text-align: center;
+  }
+
+  .ico img {
+    max-width: 80%;
+  }
+
+  .Rs {
+    margin-right: 10%;
+    font-size: 24px;
+    height: auto;
+  }
+
+  .FACILITES img {
+    max-height: 1.5em;
+    margin-left: 0;
+  }
+
+  .locatoin {
+    margin-right: 10%;
+  }
+}

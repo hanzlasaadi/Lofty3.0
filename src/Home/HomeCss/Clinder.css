@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Pathway+Gothic+One&display=swap');
+
+h5 {
+  color: #272a61;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+}
+
+.br {
+  background-color: #f5f6fa;
+  /* width: 96%; */
+}
+
+.error-h {
+  background-color: #f5f6fa;
+  border-radius: 15px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+h2 {
+  color: black;
+}
+
+.error-k .btn {
+  background-color: #272a61;
+}
+
+.badge {
+  color: darkgrey;
+  font-size: 15px;
+}
+
+/* -------cliner--- */
+input {
+  padding: 10px;
+  font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  border-radius: 0 !important;
+}
+
+.form-control {
+  border-radius: 0 !important;
+  font-size: 12x;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+body {
+  position: relative;
+}
+
+.fw-headine h1 {
+  font-size: 52px;
+  font-weight: 300
+}
