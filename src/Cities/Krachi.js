@@ -13,27 +13,68 @@ import { apiUrl } from "../assets/utils/env";
 const Krachi = ({ isLoggedIn, setIsLoggedIn }) => {
   const { cityId } = useParams();
   const [allRooms, setAllRooms] = useState([]);
+  const [solidRooms, setSolidRooms] = useState([]);
+
   React.useEffect(() => {
     axios
       .get(`${apiUrl}/api/Customer/GetAllRoomsCityWise?CityId=${cityId}`)
       .then((res) => {
         // if (res.data.result === "error") setAllRooms([]);
         setAllRooms(res.data.data);
+        setSolidRooms(res.data.data);
         console.log("allRoomsData: ", res.data.data);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  // ----------Filters State-----------
+  const [deluxe, setDeluxe] = useState(null);
+  const [double, setDouble] = useState(null);
+  const [executive, setExecutive] = useState(null);
+  const [master, setMaster] = useState(null);
+  const [twin, setTwin] = useState(null);
+  const [standard, setStandard] = useState(null);
+
+  const applyFilters = () => {
+    let tempRooms = [...solidRooms];
+    const functionFilter = (nameFilter) => {
+      tempRooms = tempRooms.filter((room) => {
+        return room.roomType.toLowerCase().includes(nameFilter);
+      });
+    };
+
+    if (deluxe) {
+      functionFilter("deluxe");
+    }
+    if (double) {
+      functionFilter("double");
+    }
+    if (executive) {
+      functionFilter("executive");
+    }
+    if (master) {
+      functionFilter("master");
+    }
+    if (twin) {
+      functionFilter("twin");
+    }
+    if (standard) {
+      functionFilter("standard");
+    }
+
+    setAllRooms(tempRooms);
+  };
 
   return (
     <>
       <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <div className="shop-page pt-30 mb-120">
         <div className="container">
-          <div className="row">
-            {allRooms?.length === 0 ? null : (
-              <div className="col-lg-3">
-                <div className="shop-sidebar">
-                  {/* <div className="card">
+          <div className="row mt-5">
+            {/* {allRooms?.length === 0 ? null : ( */}
+            <div className="col-lg-3">
+              <div className="shop-sidebar">
+                {/* <div className="card">
                   <div className="card-body">
                     <div className="map-container">
                       <iframe
@@ -48,53 +89,83 @@ const Krachi = ({ isLoggedIn, setIsLoggedIn }) => {
                   </div>
                 </div> */}
 
-                  <div className="shop-widget">
-                    <div className="check-box-item">
-                      <h5 className="shop-widget-title">Room Types</h5>
-                      <div className="checkbox-container">
-                        <label className="containerss">
-                          Executive
-                          <input type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="containerss">
-                          Deluxe
-                          <input type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="containerss">
-                          Standard
-                          <input type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
+                <div className="shop-widget">
+                  <div className="check-box-item">
+                    <h5 className="shop-widget-title">Room Types</h5>
+                    <div className="checkbox-container">
+                      <label className="containerss">
+                        Executive
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setExecutive(e.target.checked);
+                          }}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                      <label className="containerss">
+                        Deluxe
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setDeluxe(e.target.checked);
+                          }}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                      <label className="containerss">
+                        Standard
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStandard(e.target.checked);
+                          }}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
                     </div>
                   </div>
+                </div>
 
-                  <div className="shop-widget">
-                    <div className="check-box-item">
-                      <h5 className="shop-widget-title">Room Capacity</h5>
-                      <div className="checkbox-container">
-                        <label className="containerss">
-                          Double
-                          <input type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="containerss">
-                          Twin
-                          <input type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                        <label className="containerss">
-                          Master
-                          <input type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
+                <div className="shop-widget">
+                  <div className="check-box-item">
+                    <h5 className="shop-widget-title">Room Capacity</h5>
+                    <div className="checkbox-container">
+                      <label className="containerss">
+                        Double
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setDouble(e.target.checked);
+                          }}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                      <label className="containerss">
+                        Twin
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setTwin(e.target.checked);
+                          }}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                      <label className="containerss">
+                        Master
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setMaster(e.target.checked);
+                          }}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
                     </div>
                   </div>
+                </div>
 
-                  {/* <div className="shop-widget">
+                {/* <div className="shop-widget">
                   <div className="check-box-item">
                     <h5 className="shop-widget-title">
                       Accommodation Features
@@ -151,9 +222,18 @@ const Krachi = ({ isLoggedIn, setIsLoggedIn }) => {
                     </div>
                   </div>
                 </div> */}
+                <div className="error-k text-center">
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-lg"
+                    onClick={applyFilters}
+                  >
+                    Apply Filters
+                  </button>
                 </div>
               </div>
-            )}
+            </div>
+            {/* )} */}
             <div className="col-lg-9">
               {/* <div className="row mb-50">
                 <div className="col-lg-12">
