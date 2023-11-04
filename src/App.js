@@ -1,10 +1,10 @@
 import Home from "./Home/Home";
-import Lahore from "./Cities/Lahore";
+// import Lahore from "./Cities/Lahore";
 import Krachi from "./Cities/Krachi";
 import Form from "./Home/Form";
 import Booking from "./Home/Booking";
 import Clinder from "./Home/Clinder";
-import LoginSignup from "./nav-bar/auth";
+// import LoginSignup from "./nav-bar/auth";
 import Veiw from "./Home/Veiwdetail";
 import Tab from "./Home/Tab";
 import Profile from "./Home/Profile";
@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import { favDummyData } from "./assets/utils/dummyData";
 import { utils } from "@hassanmojab/react-modern-calendar-datepicker";
 import PopupAlert from "./Home/PopulAlert";
+import Login from "./nav-bar/Login";
+import Signup from "./nav-bar/Signup";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -85,26 +87,40 @@ function App() {
             />
           }
         />
-        <Route path="Booking/:roomId" element={
-          <Booking
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            authToken={authToken}
-            favRoomsId={favRoomsId}
-          />
-        }
+        <Route
+          path="Booking/:roomId"
+          element={
+            <Booking
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              authToken={authToken}
+              favRoomsId={favRoomsId}
+            />
+          }
         />
-        <Route path="Clinder/:roomId" element={
-          <Clinder isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-            datePickerState={datePickerState}
-            setDatePickerState={setDatePickerState}
-          />
-        }
+        <Route
+          path="Clinder/:roomId"
+          element={
+            <Clinder
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              datePickerState={datePickerState}
+              setDatePickerState={setDatePickerState}
+            />
+          }
         />
-        <Route path="login" element={<LoginSignup isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setAuthToken={setAuthToken} />
-        }
-        />
-        <Route path="Favorite"
+        {/* <Route
+          path="login"
+          element={
+            <LoginSignup
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              setAuthToken={setAuthToken}
+            />
+          }
+        /> */}
+        <Route
+          path="Favorite"
           element={
             <Favorite
               isLoggedIn={isLoggedIn}
@@ -154,6 +170,8 @@ function App() {
             />
           }
         />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
