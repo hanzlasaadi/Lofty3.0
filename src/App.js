@@ -168,8 +168,26 @@ function App() {
             />
           }
         />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Signup" element={<Signup />} />
+        <Route
+          path="/Login"
+          element={
+            <Login
+              setIsLoggedIn={setIsLoggedIn}
+              setAuthToken={setAuthToken}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
+        <Route
+          path="/Signup"
+          element={
+            <Signup
+              setIsLoggedIn={setIsLoggedIn}
+              setAuthToken={setAuthToken}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

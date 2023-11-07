@@ -1,12 +1,85 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { BiLogoGoogle } from "react-icons/bi";
-import { BsFacebook } from "react-icons/bs";
+import { NavLink, useNavigate } from "react-router-dom";
+// import { BiLogoGoogle } from "react-icons/bi";
+// import { BsFacebook } from "react-icons/bs";
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
+import { apiUrl } from "../assets/utils/env";
 
-const Signup = () => {
+const Signup = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
+  // responsive media queries
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+
+  // authentication functionality
+  const [signUpOncHangeData, setSignUpOncHangeData] = React.useState({});
+  const nav = useNavigate();
+
+  // check isLoggedIn = true || false
+  React.useEffect(() => {
+    let checkToken = localStorage.getItem("token");
+    if (checkToken) {
+      setIsLoggedIn(true);
+      console.log("token is present: ", checkToken);
+    } else if (
+      checkToken === "" ||
+      !checkToken ||
+      checkToken === undefined ||
+      checkToken === null
+    ) {
+      setIsLoggedIn(false);
+      console.log("token not present: ", checkToken);
+    }
+  }, []);
+
+  // <<<<   Submit SIGN-UP handler   >>>>>
+  const SubmitSignUpForm = (e) => {
+    e.preventDefault();
+    // let formdata = new FormData();
+    // formdata.append("CustomerId", cusId);
+    // formdata.append("CustomerName", accountOnChangeData.CustomerName);
+    // axios
+    // .post(`${apiUrl}/api/Customer/AddUpdateCustomer`, formdata)
+
+    const signupFormData = new FormData();
+    for (let key in signUpOncHangeData) {
+      signupFormData.append(key, signUpOncHangeData[key]);
+      // console.log(key, signUpOncHangeData[key]);
+    }
+    axios
+      .post(`${apiUrl}/api/Customer/AddUpdateCustomer`, signupFormData)
+      .then((response) => {
+        if (response.status !== 200)
+          throw new Error(
+            response.data.message || "Could not signup! Try Again"
+          );
+
+        const res = response.data.data;
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("customerId", res.customerId);
+        localStorage.setItem("customerName", res.customerName);
+        localStorage.setItem("email", res.email);
+        localStorage.setItem("mobile", res.mobile);
+        localStorage.setItem("favRoomsId", []);
+        localStorage.setItem("ImagePath", "");
+        setIsLoggedIn(true);
+        setAuthToken(res.token);
+        nav("/");
+
+        console.log("Successfully Signed Up!");
+      })
+      .catch((err) => {
+        console.log("error: ", err);
+      });
+    console.log(signUpOncHangeData);
+  };
+
+  const SignUpOnChange = (e) => {
+    let obj = signUpOncHangeData;
+    obj[e.target.name] = e.target.value;
+    setSignUpOncHangeData(obj);
+    console.log("SignUp", e.target.value);
+  };
 
   return (
     <div>
@@ -24,6 +97,7 @@ const Signup = () => {
                 type="text"
                 name="CustomerName"
                 placeholder="Full Name"
+                onChange={SignUpOnChange}
                 required
               />
               <br />
@@ -34,6 +108,7 @@ const Signup = () => {
                 type="email"
                 name="Email"
                 placeholder="Email"
+                onChange={SignUpOnChange}
                 required
               />
               <br />
@@ -44,6 +119,7 @@ const Signup = () => {
                 type="tel"
                 name="Mobile"
                 placeholder="Mobile"
+                onChange={SignUpOnChange}
                 required
               />
               <br />
@@ -53,7 +129,8 @@ const Signup = () => {
                 className="mb-1 rounded w-100"
                 type="text"
                 name="Cnic"
-                placeholder="Cnic _____-_______-_"
+                placeholder="Cnic"
+                onChange={SignUpOnChange}
                 required
               />
               <br />
@@ -64,11 +141,16 @@ const Signup = () => {
                 type="password"
                 name="Password"
                 placeholder="Password"
+                onChange={SignUpOnChange}
                 required
               />
             </div>
             <div class="d-grid gap-2">
-              <button class="btn login" type="button">
+              <button
+                onClick={SubmitSignUpForm}
+                class="btn login"
+                type="button"
+              >
                 LOGIN
               </button>
             </div>
