@@ -5,11 +5,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import { apiUrl } from "../assets/utils/env";
+import { TailSpin } from "react-loader-spinner";
 
 const Login = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
   // responsive hooks
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  const [loading, setLoading] = React.useState(false);
 
   // authentication functionality
   const [loginOncHangeData, setLoginOncHangeData] = React.useState({});
@@ -35,12 +37,14 @@ const Login = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
   // <<<<   Submit SIGN-IN handler   >>>>>
   const SubmitLoginForm = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log(loginOncHangeData);
     loginOncHangeData.androidFcmToken = "";
     loginOncHangeData.iosFcmToken = "";
     axios
       .post(`${apiUrl}/api/Customer/Login`, loginOncHangeData)
       .then((response) => {
+        setLoading(false);
         if (response.status !== 200)
           throw new Error(
             response.data.message || "Could'nt Login, Try Later!"
@@ -54,9 +58,12 @@ const Login = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
         localStorage.setItem("mobile", res.mobile);
         localStorage.setItem("favRooms", []);
         setIsLoggedIn(true);
-        nav("/");
+        setInterval(() => {
+          nav("/");
+        }, 1500);
       })
       .catch((err) => {
+        setLoading(false);
         alert("We could not log you in at the moment! Please try again!");
         console.log("Err===->>>", err);
       });
@@ -71,7 +78,35 @@ const Login = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
 
   return (
     <>
-      <div className="content" style={{ backgroundColor: "#fbfbfb" }}>
+      {loading ? (
+        <TailSpin
+          height="80"
+          width="80"
+          color="#272a61"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{
+            float: "left",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            alignSelf: "center",
+            paddingTop: "15%",
+            paddingLeft: "40%",
+            zIndex: "9999",
+          }}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : null}
+      <div
+        className="content"
+        style={
+          loading
+            ? { opacity: "30%" }
+            : { backgroundColor: "#fbfbfb", zIndex: "111" }
+        }
+      >
         <div
           className="row  d-flex align-items-center text-center"
           style={

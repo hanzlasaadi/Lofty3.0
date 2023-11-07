@@ -277,7 +277,7 @@ const Krachi = ({ isLoggedIn, setIsLoggedIn }) => {
               {allRooms?.map((room) => {
                 return (
                   <div
-                    className="row search-card-result rounded-4"
+                    className="row search-card-result rounded-4 mb-4"
                     key={room.adId}
                   >
                     <div className="col-md-5">

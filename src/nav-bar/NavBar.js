@@ -57,8 +57,9 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn, authToken }) => {
   };
   //  <<<<<<<<<<<<<<<<<<<        WHATSAPP    >>>>>>>>>>>>>>>>>>>>>
   const Whatsapp = () => {
-    const phoneNumber = "+923056129012";
-    const message = "Hello";
+    const phoneNumber = "+923330445494";
+    // const phoneNumber = "+923116107183";
+    const message = "Hello Loftyrooms, I am a future customer!";
     const url = `https://api.whatsapp.com/send?phone=${encodeURIComponent(
       phoneNumber
     )}&text=${encodeURIComponent(message)}`;
@@ -224,7 +225,8 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn, authToken }) => {
               )}
               <button
                 onClick={() => {
-                  window.location.href = "tel:+923232345673";
+                  // window.location.href = "tel:+923232345673";
+                  Whatsapp();
                 }}
                 type="button"
                 className="btn btn-outline"

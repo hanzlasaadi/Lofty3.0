@@ -5,11 +5,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import { apiUrl } from "../assets/utils/env";
+import { TailSpin } from "react-loader-spinner";
 
 const Signup = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
   // responsive media queries
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  const [loading, setLoading] = React.useState(false);
 
   // authentication functionality
   const [signUpOncHangeData, setSignUpOncHangeData] = React.useState({});
@@ -35,6 +37,7 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
   // <<<<   Submit SIGN-UP handler   >>>>>
   const SubmitSignUpForm = (e) => {
     e.preventDefault();
+    setLoading(true);
     // let formdata = new FormData();
     // formdata.append("CustomerId", cusId);
     // formdata.append("CustomerName", accountOnChangeData.CustomerName);
@@ -49,6 +52,7 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
     axios
       .post(`${apiUrl}/api/Customer/AddUpdateCustomer`, signupFormData)
       .then((response) => {
+        setLoading(false);
         if (response.status !== 200)
           throw new Error(
             response.data.message || "Could not signup! Try Again"
@@ -64,11 +68,13 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
         localStorage.setItem("ImagePath", "");
         setIsLoggedIn(true);
         setAuthToken(res.token);
-        nav("/");
-
+        setInterval(() => {
+          nav("/");
+        }, 1500);
         console.log("Successfully Signed Up!");
       })
       .catch((err) => {
+        setLoading(false);
         console.log("error: ", err);
       });
     console.log(signUpOncHangeData);
@@ -83,7 +89,35 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, setAuthToken }) => {
 
   return (
     <div>
-      <div className="content">
+      {loading ? (
+        <TailSpin
+          height="80"
+          width="80"
+          color="#272a61"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{
+            float: "left",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            alignSelf: "center",
+            paddingTop: "15%",
+            paddingLeft: "40%",
+            zIndex: "9999",
+          }}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : null}
+      <div
+        className="content"
+        style={
+          loading
+            ? { opacity: "30%" }
+            : { backgroundColor: "#fbfbfb", zIndex: "111" }
+        }
+      >
         <div
           className="row  d-flex align-items-center text-center"
           style={isMobile || isTablet ? { width: "80%" } : { width: "40%" }}
