@@ -2,12 +2,19 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { BiLogoGoogle } from "react-icons/bi";
 import { BsFacebook } from "react-icons/bs";
+import { useMediaQuery } from "react-responsive";
 
 const Signup = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+
   return (
     <div>
       <div className="content">
-        <div className="row  d-flex align-items-center text-center">
+        <div
+          className="row  d-flex align-items-center text-center"
+          style={isMobile || isTablet ? { width: "80%" } : { width: "40%" }}
+        >
           <div className="col-lg-6 py-3 text-left rounded bg-dark">
             <div className="rizwan-form">
               <label for="exampleInputPassword1">Enter Your Name</label>
@@ -66,7 +73,7 @@ const Signup = () => {
               </button>
             </div>
             <hr class="style-four" />
-            <div className="d-flex">
+            {/* <div className="d-flex">
               <button className="btn w-50 facebook">
                 <BsFacebook />
                 &nbsp; Login
@@ -76,7 +83,7 @@ const Signup = () => {
                 <BiLogoGoogle />
                 &nbsp; Login
               </button>
-            </div>
+            </div> */}
             <NavLink to="/Rizwan_Login" className="text-white">
               Already have an account?
             </NavLink>
@@ -85,9 +92,9 @@ const Signup = () => {
               Login
             </NavLink>
           </div>
-          <div className="col-lg-6">
+          {/* <div className="col-lg-6">
             <img className="img-fluid img" src="sing.png" alt="Signup Img" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -16,7 +16,6 @@ import AddMoney from "./Home/addMoney";
 import { useEffect, useState } from "react";
 import { favDummyData } from "./assets/utils/dummyData";
 import { utils } from "@hassanmojab/react-modern-calendar-datepicker";
-import PopupAlert from "./Home/PopulAlert";
 import Login from "./nav-bar/Login";
 import Signup from "./nav-bar/Signup";
 
@@ -55,7 +54,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <PopupAlert />
       <Routes>
         <Route
           path="/"

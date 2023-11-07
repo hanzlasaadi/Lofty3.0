@@ -4,6 +4,7 @@ import NavBar from "../nav-bar/NavBar";
 import axios from "axios";
 import { apiUrl } from "../assets/utils/env";
 import { Link, useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 // import { dummyWalletData } from "../assets/utils/dummyData";
 
 const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
@@ -17,6 +18,10 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
   const [addingAmount, setAddingAmount] = React.useState(false);
   let refNumber;
   const nav = useNavigate();
+
+  // responsive hooks
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
 
   // Add Amount
   const handleAddAmount = (e) => {
@@ -226,7 +231,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
   return (
     <>
       <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}></NavBar>
-      {/* <div id="popup1" className="overlay">
+      <div id="popup1" className="overlay">
         <div className="popup ">
           <div className="center-content"></div>
 
@@ -274,16 +279,21 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
             ></p>
           </div>
           <div className="inputDiv">
-            <input type="number" id="amount"
+            <input
+              type="number"
+              id="amount"
               className="rounded"
-              placeholder="Enter your amount" name="amount"
+              placeholder="Enter your amount"
+              name="amount"
               value={amountToAdd}
               onChange={(e) => setAmountToAdd(e.target.value)}
-              required />
+              required
+            />
             <div className="mt-2 d-flex flex-nowrap justify-content-evenly">
               <button
                 className="border rounded"
-                onClick={(e) => setAmountToAdd(Number(e.target.textContent))}>
+                onClick={(e) => setAmountToAdd(Number(e.target.textContent))}
+              >
                 1000
               </button>
               <button
@@ -318,7 +328,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
       {/* <br /> */}
       <section className="mt-5">
         <div className="container d-flex flex-nowrap justify-content-evenly">
@@ -343,7 +353,8 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                 aria-selected="true"
                 style={{ textAlign: "left" }}
               >
-                <i className="bi bi-wallet2 mr-3"></i>Wallet
+                <i className="bi bi-wallet2 mr-3"></i>
+                {isMobile ? "" : "Wallet"}
               </button>
               <button
                 className="nav-link fs-3 text-white"
@@ -357,7 +368,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                 style={{ textAlign: "left" }}
               >
                 <i className="bi bi-person-gear mr-3"></i>
-                Account Settings
+                {isMobile ? "" : "Account Settings"}
               </button>
 
               <button
@@ -372,7 +383,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                 style={{ textAlign: "left" }}
               >
                 <i className="bi bi-person-lock mr-3"></i>
-                Password
+                {isMobile ? "" : "Password"}
               </button>
               <button
                 className="nav-link fs-3 text-white"
@@ -386,7 +397,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                 style={{ textAlign: "left" }}
               >
                 <i className="bi bi-info-circle mr-3"></i>
-                Help & Support
+                {isMobile ? "" : "Help & Support"}
               </button>
               <button
                 className="nav-link fs-3 text-white"
@@ -401,7 +412,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                 onClick={handleSignout}
               >
                 <i className="bi bi-box-arrow-right mr-3"></i>
-                Signout
+                {isMobile ? "" : "Signout"}
               </button>
               <a
                 className="nav-link fs-3 text-danger text-center mt-3"
@@ -409,7 +420,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                 href="#popup1"
               >
                 <i className="bi bi-trash mr-3"></i>
-                Delete Account
+                {isMobile ? "" : "Delete Account"}
               </a>
             </div>
             {/* </div> */}
@@ -773,7 +784,13 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                     </a>
                   </div> */}
           </div>
-          <div className="w-auto tab-content" id="v-pills-tabContent">
+          <div
+            className="w-auto tab-content"
+            id="v-pills-tabContent"
+            style={
+              isMobile || isTablet ? { maxWidth: "50%", fontSize: "10px" } : {}
+            }
+          >
             <div
               className="tab-pane fade"
               id="v-pills-settings"
@@ -788,6 +805,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                     onSubmit={async (e) =>
                       await handleSubmitChangeAccountSettings(e)
                     }
+                    style={isMobile || isTablet ? { width: "200px" } : {}}
                   >
                     <img
                       alt="signupLogo"
@@ -795,13 +813,18 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                       id="signupLogo"
                     />
                     <div className="inputDiv">
-                      <label className="inputLabel" for="customerName">
+                      <label
+                        style={isMobile || isTablet ? { fontSize: "10px" } : {}}
+                        className="inputLabel"
+                        for="customerName"
+                      >
                         Full Name
                       </label>
                       <input
                         type="text"
                         id="customerName"
                         className="rounded"
+                        style={isMobile || isTablet ? { fontSize: "10px" } : {}}
                         name="CustomerName"
                         value={customerName}
                         onChange={(e) => {
@@ -812,10 +835,15 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                       />
                     </div>
                     <div className="inputDiv">
-                      <label className="inputLabel" for="Email">
+                      <label
+                        style={isMobile || isTablet ? { fontSize: "10px" } : {}}
+                        className="inputLabel"
+                        for="Email"
+                      >
                         Email
                       </label>
                       <input
+                        style={isMobile || isTablet ? { fontSize: "10px" } : {}}
                         type="email"
                         id="Email"
                         className="rounded"
@@ -825,10 +853,15 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                       />
                     </div>
                     <div className="inputDiv">
-                      <label className="inputLabel" for="mobile">
+                      <label
+                        style={isMobile || isTablet ? { fontSize: "10px" } : {}}
+                        className="inputLabel"
+                        for="mobile"
+                      >
                         Phone no.
                       </label>
                       <input
+                        style={isMobile || isTablet ? { fontSize: "10px" } : {}}
                         type="tel"
                         id="mobile"
                         className="rounded"
@@ -839,11 +872,15 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, authToken, setAuthToken }) => {
                     </div>
                     <div className="buttonWrapper">
                       <button
+                        style={
+                          isMobile || isTablet
+                            ? { fontSize: "10px", backgroundColor: "#272a61" }
+                            : { backgroundColor: "#272a61" }
+                        }
                         type="submit"
                         id="submitButton"
                         onclick={handleSubmitChangeAccountSettings}
                         className="submitButton pure-button  rounded-pill"
-                        style={{ backgroundColor: "#272a61" }}
                       >
                         <span>UPDATE</span>
                       </button>

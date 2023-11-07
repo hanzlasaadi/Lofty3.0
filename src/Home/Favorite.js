@@ -45,7 +45,7 @@ const Favorat = ({
       <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       {favRooms.map((room, i) => {
         return (
-          <div className="container bg-light mt-3 rounded-4" key={i}>
+          <div className="container bg-light mt-5 rounded-4" key={i}>
             <div className="row">
               <div className="col-md-4">
                 <img

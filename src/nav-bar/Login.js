@@ -2,14 +2,21 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { BiLogoGoogle } from "react-icons/bi";
 import { BsFacebook } from "react-icons/bs";
+import { useMediaQuery } from "react-responsive";
 
 const Login = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
   return (
     <>
-      <div className="content">
+      <div className="content" style={{ backgroundColor: "#fbfbfb" }}>
         <div
           className="row  d-flex align-items-center text-center"
-          style={{ width: "-webkit-fill-available" }}
+          style={
+            isMobile || isTablet
+              ? { width: "80%" }
+              : { width: "-webkit-fill-available " }
+          }
         >
           <div className="col-lg-6 py-3 text-left rounded bg-dark">
             <form action="" onSubmit="">
@@ -41,7 +48,7 @@ const Login = () => {
               </div>
             </form>
             <hr class="style-four" />
-            <div className="d-flex">
+            {/* <div className="d-flex">
               <button className="btn w-50 facebook">
                 <BsFacebook />
                 &nbsp; Login
@@ -51,21 +58,21 @@ const Login = () => {
                 <BiLogoGoogle />
                 &nbsp; Login
               </button>
-            </div>
+            </div> */}
             <p>
               Don’t have an account?{" "}
-              <NavLink to="/Rizwan_Sing_up" className="text-white">
+              <NavLink to="/Signup" className="text-white">
                 Registered
               </NavLink>
             </p>
           </div>
-          <div className="col-lg-6">
+          {/* <div className="col-lg-6">
             <img
               className="img-fluid img"
               src="./public/assets/images/blog/Lahore1.jpg"
               alt="Img"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
